@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guru Saran | Portfolio</title>
+
+<style>
+/* THEME VARIABLES */
+:root{
+  --bg:#0f1724;
+  --panel:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#5eead4;
+  --text:#e6eef6;
+  --card-bg:rgba(255,255,255,0.03);
+}
+:root.light{
+  --bg:#f8fafc;
+  --panel:#ffffff;
+  --muted:#64748b;
+  --accent:#0ea5e9;
+  --text:#0f172a;
+  --card-bg:#ffffff;
+}
+
+/* GENERAL */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,Arial;
+  background:var(--bg);
+  color:var(--text);
+  transition:0.3s background,0.3s color;
+}
+.container{max-width:1100px;margin:auto;padding:1.5rem}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.site-header{position:sticky;top:0;background:var(--panel);backdrop-filter:blur(8px);z-index:40;padding:.6rem 0}
+.logo{color:var(--text);text-decoration:none;font-weight:700;font-size:1.2rem}
+
+.theme-toggle{
+  cursor:pointer;
+  background:var(--card-bg);
+  border:0;
+  padding:.5rem .8rem;
+  border-radius:8px;
+  color:var(--text);
+  font-size:1rem;
+}
+
+/* NAVIGATION */
+.nav-toggle{display:none;background:transparent;border:0;color:var(--text);font-size:1.6rem}
+.site-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.site-nav a{color:var(--muted);text-decoration:none;padding:.5rem .6rem;border-radius:6px;font-weight:500}
+.site-nav a:hover{color:var(--text);background:rgba(255,255,255,0.05)}
+
+/* HERO */
+.hero{text-align:center;padding:5rem 0}
+.accent{color:var(--accent)}
+.lead{color:var(--muted);max-width:700px;margin:auto;margin-top:.5rem}
+.btn{
+  display:inline-block;
+  background:var(--accent);
+  color:#012;
+  padding:.7rem 1rem;
+  border-radius:50px;
+  margin-top:1rem;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* SECTIONS */
+.section{padding:3rem 0}
+.section h2{text-align:center;font-size:2rem}
+
+/* PROJECT CARDS (NO IMAGES) */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin-top:2rem;
+}
+.card{
+  background:var(--card-bg);
+  padding:1.5rem;
+  border-radius:12px;
+  box-shadow:0 0 10px rgba(0,0,0,0.2);
+  transition:0.25s;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.05);
+}
+.card:hover{transform:translateY(-4px);}
+
+.card-title{
+  font-size:1.2rem;
+  font-weight:600;
+  margin:0;
+  color:var(--text);
+}
+
+.card-desc{
+  margin-top:.4rem;
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+/* SKILLS */
+.skills-list{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.6rem;
+  list-style:none;
+  margin-top:1.2rem;
+}
+.skills-list li{
+  padding:.5rem .8rem;
+  background:var(--card-bg);
+  border-radius:8px;
+  color:var(--muted);
+}
+
+/* FOOTER */
+.site-footer{text-align:center;color:var(--muted);padding:2rem 0}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .projects-grid{grid-template-columns:1fr}
+  .nav-toggle{display:block}
+  .site-nav{display:none}
+  .site-nav[aria-expanded="true"]{
+    display:block;position:absolute;right:1rem;top:64px;background:var(--panel);
+    padding:.7rem;border-radius:8px;
+  }
+  .site-nav ul{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="#">Guru Saran</a>
+
+    <div>
+      <button class="theme-toggle" id="themeBtn">🌙</button>
+      <button class="nav-toggle">☰</button>
+    </div>
+
+    <nav class="site-nav" aria-expanded="false">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container">
+    <h1>Hello, I'm <span class="accent">Guru Saran</span></h1>
+    <p class="lead">AI & Data Science student building interactive applications and clean UI projects.</p>
+    <a href="#projects" class="btn">See Projects</a>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="container">
+    <h2>My Projects</h2>
+
+    <div class="projects-grid">
+
+      <div class="card">
+        <h3 class="card-title">Button Colour Changer</h3>
+        <p class="card-desc">A simple UI app to cycle through colours.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Character Counter</h3>
+        <p class="card-desc">Counts input text characters live.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Click Tracker</h3>
+        <p class="card-desc">Tracks and displays number of clicks.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Counter App</h3>
+        <p class="card-desc">Increment, decrement, and reset counter.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Simple Login UI</h3>
+        <p class="card-desc">Basic login page with validations.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Todo App</h3>
+        <p class="card-desc">Add, manage and delete daily tasks.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+
+    <ul class="skills-list">
+      <li>Teamwork</li>
+      <li>Time Management</li>
+      <li>Problem Solving</li>
+      <li>Basic Web Development</li>
+      <li>JavaScript</li>
+      <li>UI Design</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p class="lead">Email: <strong>gurusaran5623@gmail.com</strong></p>
+    <p class="lead">Phone: <strong>9380416857</strong></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  © <span id="year"></span> Guru Saran — Portfolio
+</footer>
+
+<script>
+// YEAR AUTO FILL
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// MOBILE NAV
+const toggle = document.querySelector('.nav-toggle');
+const nav = document.querySelector('.site-nav');
+toggle.addEventListener('click', () => {
+  const expanded = nav.getAttribute('aria-expanded') === 'true';
+  nav.setAttribute('aria-expanded', String(!expanded));
+});
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+
+// THEME TOGGLE
+const themeBtn = document.getElementById("themeBtn");
+
+function setTheme(theme){
+  document.documentElement.className = theme;
+  localStorage.setItem("theme", theme);
+  themeBtn.textContent = theme==="light" ? "🌙" : "☀️";
+}
+
+themeBtn.addEventListener("click", () => {
+  const current = document.documentElement.className;
+  setTheme(current === "light" ? "dark" : "light");
+});
+
+// LOAD SAVED THEME
+setTheme(localStorage.getItem("theme") || "dark");
+</script>
+
+</body>
+</html>
